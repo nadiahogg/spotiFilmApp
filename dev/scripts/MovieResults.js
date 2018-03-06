@@ -13,6 +13,7 @@ class MovieResults extends React.Component{
         this.state = {
             title: "",
             movies: [],
+            token: location.search.length > 0 ? location.search.match(/access_token=([\w\d-.]+)/)[1] : '',
         };
         this.showMovieByGenre = this.showMovieByGenre.bind(this);
     }
@@ -52,6 +53,7 @@ class MovieResults extends React.Component{
 
     render() {
         return(
+<<<<<<< HEAD
             <div>   
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 <div className="wrapper clearfix">
@@ -73,9 +75,44 @@ class MovieResults extends React.Component{
                         </div>
                 </div>  
             </div> 
+=======
+            <div>
+                <div>
+                    <NavBar showMovieByGenre={this.showMovieByGenre}/> 
+                </div> 
+
+                <div>
+                    {this.state.token !== '' ? 
+                        this.state.movies.map((movie) => {
+                            return (
+                                <div className="wrapper" key={movie.id}>
+                                    <Link to={`/soundtrack/${movie.id}`}>
+                                        <figure className="movie-details"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="sq-sample26" />
+                                            <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
+                                                <h4>{movie.title}</h4>
+                                                <div className="btn">Find Soundtrack</div>
+                                            </figcaption>
+                                        </figure>
+                                    </Link>
+
+                                </div>
+                            )
+                        })
+                    
+                    : null}
+                </div>
+            </div>
+>>>>>>> 09ae10f0f5308d7b71160343211a4fede2eeda13
         )
     } 
 }
 
 
-export default MovieResults
+export default MovieResults;
+
+{/* {this.state.token !== '' ?    */ }
+
+
+{/* <h2>Heading</h2> */}
+
+
