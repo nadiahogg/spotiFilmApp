@@ -53,29 +53,7 @@ class MovieResults extends React.Component{
 
     render() {
         return(
-<<<<<<< HEAD
-            <div>   
-                <NavBar showMovieByGenre={this.showMovieByGenre}/>
-                <div className="wrapper clearfix">
-                    <h2 className="results-heading">Heading</h2>
-                        <div>
-                            {this.state.movies.map((movie) => {
-                                return (
-                                    <div key={movie.id}>
-                                        <Link to={`/soundtrack/${movie.id}`}>
-                                            <figure className="movie-details"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
-                                                <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
-                                                    <h4>{movie.title}</h4>
-                                                    <div className="btn">Find Soundtrack</div>
-                                                </figcaption>
-                                            </figure>
-                                        </Link>
-                                </div>
-                            )})}  
-                        </div>
-                </div>  
-            </div> 
-=======
+
             <div>
                 <div>
                     <NavBar showMovieByGenre={this.showMovieByGenre}/> 
@@ -102,7 +80,6 @@ class MovieResults extends React.Component{
                     : null}
                 </div>
             </div>
->>>>>>> 09ae10f0f5308d7b71160343211a4fede2eeda13
         )
     } 
 }
