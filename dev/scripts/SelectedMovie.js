@@ -34,7 +34,7 @@ class SelectedMovie extends React.Component {
                     url: 'https://api.spotify.com/v1/search',
                     params: {
                         ////// change this to album///////
-                        q: `soundtrack:${this.state.title}`,
+                        q: `album:${this.state.title}`,
                         type: 'album'
                     },
                     headers: {
@@ -162,7 +162,11 @@ class SelectedMovie extends React.Component {
                         )
                     })}
                 </div>) 
-            } else{ soundtrackResults = <button className="playlistBtn clearfix" onClick={this.playlistSearch} >Find playlist</button>}
+            } else{ soundtrackResults = 
+            <div className="btn-container clearfix">
+                <button className="playlistBtn clearfix" onClick={this.playlistSearch}>Find playlist</button>
+            </div>
+            }
         
         
         const playlistRender = ( 
@@ -173,7 +177,7 @@ class SelectedMovie extends React.Component {
                 <nav className="fixedHeader">
                     <div className="wrapper clearfix">
 
-                        <Link to='/'>Go Back</Link>
+                        <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
 
                         <div className="navLogo clearfix">
                             <img src="../../public/assets/soundbar2.png" alt="" />
@@ -182,14 +186,14 @@ class SelectedMovie extends React.Component {
                     </div>
                 </nav>
 
-                <div className="wrapper">
+                <div className="wrapper movie-results">
                     <div className="filmInfo">
                         <h2>Soundtracks for {this.state.title}</h2>
                         <div className="poster_container">
                             <img src={`https://image.tmdb.org/t/p/w300/${this.state.poster_path}`} alt={`poster for ${this.state.title}`} />
                         </div>
                         <h3>{this.state.tagline}</h3>
-                        <p>{this.state.overview}</p>
+                        <p className="description">{this.state.overview}</p>
                     </div>
                     {soundtrackResults}
                     {this.state.playlists > 0 ? playlistRender : null}
