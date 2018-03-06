@@ -59,12 +59,7 @@ class MovieResults extends React.Component{
     }
 
     render() {
-<<<<<<< HEAD
-        return(
-
-=======
         return (
->>>>>>> 659bfc292cd68ce1a6c1c7a32840d5b0bcc88821
             <div>
                 <div>
                     <NavBar showMovieByGenre={this.showMovieByGenre} />
